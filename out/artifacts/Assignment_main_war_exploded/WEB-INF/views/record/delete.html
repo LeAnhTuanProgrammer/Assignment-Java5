@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Records</title>
+    <link href="/assets/css/css3.css" rel="stylesheet"/>
+</head>
+<body>
+<div id="heared">
+    <img src="/assets/imgs/anh.jpg"  width="1000px" height="250px" />
+</div>
+<div class="menu">
+    <ul>
+        <li><a href="/index" >Home</a></li>
+        <li><a href="/departs"> List depart</a></li>
+        <li><a href="/staffs">List staff</a></li>
+        <li><a href="/records">List record</a></li>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/login">Logout</a></li>
+    </ul>
+</div>
+<div>
+    <div id="main">
+        <center><h1>Delete Records</h1></center>
+    </div>
+
+    <div class="group">
+
+        <br><br>
+        <p>
+            <a href="/records" id="list">Back to Record list</a>
+        </p>
+        <h3>Are you sure want to delete this record ?</h3>
+        <div id="form">
+            <form method="post" th:action="@{/records/__${record.get().id}__/delete}" th:object="${record}">
+                <label>Reason: <span th:text="${record.get().reason}"></span></label><br><br/>
+                <button class="btn btn-primary" type="submit">Delete</button><br/>
+                <br/>
+            </form>
+        </div>
+    </div>
+</div>
+            </section>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link href="assets/css/css.css" rel="stylesheet"/>
+
+</head>
+<body >
+<center>
+    <img src="assets/imgs/anh2.jpg"  rel="stylesheet"/>
+    <!--    <section fragment="content">-->
+    <form th:action="@{/login}" method="POST" id="signForm" class="form">
+        <h1>Sign Up</h1>
+        <!--                    <h3 class="form-signin-heading" th:text="Login">Login</h3>-->
+        <br/>
+        <div class="form-group">
+
+            <input type="text" id="userName" name="userName"  th:placeholder="UserName"
+            />
+        </div>
+        <div class="form-group">
+
+            <input type="password"  th:placeholder="Password"
+                   id="passWord" name="passWord" class="form-control" />
+            <span data-placeholder=""></span>
+        </div>
+        <input id="btnLogin" class="logbtn" value="Login" type="Submit" >
+        <br>
+        <div class="bottom-text">
+        </div>
+        <a th:href="@{/register.html}">Create new account</a>
+    </form>
+
+    <!--    </section>-->
+</center>
+</body>
+</html>

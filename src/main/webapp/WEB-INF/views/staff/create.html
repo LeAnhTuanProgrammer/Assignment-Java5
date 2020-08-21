@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create new staff</title>
+    <link href="/assets/css/css4.css" rel="stylesheet"/>
+
+</head>
+<body>
+<div id="heared">
+    <img src="/assets/imgs/anh.jpg"  width="1000px" height="250px" />
+                                                                </div>
+
+                                                                  <div class="menu">
+                                                                                   <ul>
+                                                                                       <li><a href="/index" >Home</a></li>
+                                                                                                                        <li><a href="/departs"> List depart</a></li>
+                                                                                                                                                                 <li><a href="/staffs">List staff</a></li>
+                                                                                                                                                                                                       <li><a href="/records">List record</a></li>
+                                                                                                                                                                                                                                               <li><a href="/login">Login</a></li>
+                                                                                                                                                                                                                                                                               <li><a href="/login">Logout</a></li>
+                                                                                                                                                                                                                                                                                                          </ul>
+
+</div>
+<section fragment="content">
+    <div id="main">
+        <center><h3>Create Staff</h3></center>
+    </div>
+    <th:block th:if="${message}">
+        <div th:text="${message}" class="alert alert-success" role="alert">
+        </div>
+    </th:block>
+    <div class="group">
+
+        <br><br>
+        <p>
+            <a href="/staffs" id="list">Back to Staffs list</a>
+        </p>
+
+
+        <div id="form">
+            <form th:object="${staff}" th:action="@{/staffs/create/}" method="post">
+                <div class="form-group">
+                    <label>Name: </label>
+                    <input type="text" th:field="*{name}" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label>Gender </label><br>
+                    <label><input type="radio" th:field="*{gender}" value="1">Male</label>
+                    <label><input type="radio" th:field="*{gender}" value="0"> Female</label>
+                </div>
+                <div class="form-group">
+                    <label>Picture</label>
+
+                    <input th:field="*{photo}" type="text" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label>Birthday</label>
+                    <input th:field="*{birthday}" type="text" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label>Salary</label>
+                    <input th:field="*{salary}" type="text" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input th:field="*{email}" type="text" class="form-control"/>
+                </div>
+
+                <div class="form-group">
+                    <label>Phone</label>
+
+                    <input th:field="*{phone}" type="text" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label>Notes</label>
+                    <textarea th:field="*{notes}" type="text" class="form-control"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Depart: </label>
+                    <select class="form-control" th:field="*{depart}">
+                        <option th:each="departs :${departs}" th:value="${departs.id}" th:text="${departs.name}"></option>
+                    </select>
+                </div>
+                <br/>
+                <button>Create Staff </button>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+</body>

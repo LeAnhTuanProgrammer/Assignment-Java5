@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete depart</title>
+    <link href="/assets/css/css3.css" rel="stylesheet"/>
+</head>
+<body>
+<div id="heared">
+    <img src="/assets/imgs/anh.jpg"  width="1000px" height="250px" />
+                                                                </div>
+
+                                                                  <div class="menu">
+                                                                                   <ul>
+                                                                                       <li><a href="/index" >Home</a></li>
+                                                                                                                        <li><a href="/departs"> List depart</a></li>
+                                                                                                                                                                 <li><a href="/staffs">List staff</a></li>
+                                                                                                                                                                                                       <li><a href="/records">List record</a></li>
+                                                                                                                                                                                                                                               <li><a href="/login">Login</a></li>
+                                                                                                                                                                                                                                                                               <li><a href="/login">Logout</a></li>
+                                                                                                                                                                                                                                                                                                          </ul>
+
+</div><section fragment="content">
+
+    <div id="main">
+        <center><h1>Delete Depart</h1></center>
+    </div>
+    <th:block th:if="${message}">
+        <div th:text="${message}" class="alert alert-success" role="alert">
+        </div>
+    </th:block>
+    <div class="group">
+
+        <br><br>
+        <p>
+            <a href="/departs" id="list">Back to Depart list</a>
+        </p>
+    </div>
+        <h3>Are you sure want to delete this depart?</h3>
+        <div id="form">
+            <form method="post" th:action="@{/departs/__${depart.get().id}__/delete}" th:object="${depart}">
+                <label>Depart: <span th:text="${depart.get().name}"></span></label><br><br/>
+                <button class="btn btn-primary" type="submit">Delete</button>
+
+            </form>
+        </div>
+            </section>
+</body>
+</html>

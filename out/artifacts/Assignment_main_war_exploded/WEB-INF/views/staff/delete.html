@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Staff</title>
+    <link href="/assets/css/css3.css" rel="stylesheet"/>
+</head>
+<body>
+<div id="heared">
+    <img src="/assets/imgs/anh.jpg"  width="1000px" height="250px" />
+                                                                </div>
+
+                                                                  <div class="menu">
+                                                                                   <ul>
+                                                                                       <li><a href="/index" >Home</a></li>
+                                                                                                                        <li><a href="/departs"> List depart</a></li>
+                                                                                                                                                                 <li><a href="/staffs">List staff</a></li>
+                                                                                                                                                                                                       <li><a href="/records">List record</a></li>
+                                                                                                                                                                                                                                               <li><a href="/login">Login</a></li>
+                                                                                                                                                                                                                                                                               <li><a href="/login">Logout</a></li>
+                                                                                                                                                                                                                                                                                                          </ul>
+                                                                  </div>
+                                                                      <section fragment="content">
+    <div class="form-control">
+        <h3>Are you sure want to delete this staff ?</h3>
+        <form method="post" th:action="@{/staffs/__${staff.get().id}__/delete}" th:object="${staff}">
+            <label>Staff: <span th:text="${staff.get().name}"></span></label><br>
+            <button class="btn btn-primary" type="submit">Delete</button>
+        </form>
+    </div>
+</section>
+
+</body>
+</html>

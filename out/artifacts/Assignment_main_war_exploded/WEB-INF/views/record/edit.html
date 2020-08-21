@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Records</title>
+    <link href="/assets/css/css2.css" rel="stylesheet"/>
+</head>
+<body>
+<div id="heared">
+    <img src="/assets/imgs/anh.jpg"  width="1000px" height="250px" />
+</div>
+<div class="menu">
+    <ul>
+        <li><a href="/index" >Home</a></li>
+        <li><a href="/departs"> List depart</a></li>
+        <li><a href="/staffs">List staff</a></li>
+        <li><a href="/records">List record</a></li>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/login">Logout</a></li>
+    </ul>
+</div>
+<div>
+    <div id="main">
+        <center><h1>Edit Records</h1></center>
+    </div>
+    <th:block th:if="${message}">
+        <div th:text="${message}" class="alert alert-success" role="alert">
+        </div>
+    </th:block>
+    <div class="group">
+
+        <br><br>
+        <p>
+            <a href="/records" id="list">Back to Record list</a>
+        </p>
+    <div class="group">
+
+
+
+        <div id="form">
+            <form th:object="${record}" method="post">
+                <div class="form-group">
+                    <label>Type </label><br/>
+                    <label><input type="radio" th:field="*{type}" value="0" >Bonus</label>
+                    <label><input type="radio" th:field="*{type}"  value="1"> Discipline</label>
+                </div>
+
+                <div class="form-group">
+                    <label>Reason: </label>
+                    <input th:field="*{reason}" type="text" class="form-control"/>
+                    <br>
+                </div>
+
+                <div class="form-group">
+                    <label>Post Date</label>
+                    <input th:field="*{postDate}" type="text" class="form-control"/>
+                </div>
+
+                <div class="form-group">
+                    <label>Staff: </label>
+                    <select class="form-control" th:field="*{staff}">
+                        <option th:each="staff :${staffs}" th:value="${staff.id}" th:text="${staff.name}"></option>
+                    </select>
+                </div>
+
+                <br>
+                <button class="btn btn-primary" type="submit">Update</button>
+            </form>
+        </div>
+
+            </section>
+    </div>
+    </div>
+</div>
+</body>
+</html>

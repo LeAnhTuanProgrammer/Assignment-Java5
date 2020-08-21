@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      >
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <link href="assets/css/css.css" rel="stylesheet"/>
+</head>
+<body>
+<section fragment="content">
+
+
+    <th:block th:if="${successMessage}">
+        <div class="alert alert-success" role="alert">
+            <p th:text="${successMessage}"></p>
+        </div>
+    </th:block>
+
+    <form th:action="@{/register}" th:object="${user}" method="post" id="signForm" class="form">
+        <h2>Sign Up</h2>
+        <div  th:if="${#fields.hasErrors()}" class="alert alert-danger" role="alert">
+            <div th:each="error : ${#fields.errors()}" th:text="${error}"></div>
+        </div>
+
+
+        <div class="form-group">
+            <label>Full Name:</label>
+            <input class="form-control" id="fullName" type="text" th:field="*{fullName}"/>
+        </div>
+
+        <div class="form-group">
+            <label>User Name:</label>
+            <input class="form-control"  id="userName" type="text" th:field="*{userName}"/>
+        </div>
+
+        <div class="form-group">
+            <label>Password:</label>
+            <input class="form-control" id="passWord" type="password" th:field="*{passWord}"/>
+        </div>
+        <br>
+        <br>
+        <input  id="btnLogin"  type="submit" value="Sign Up" class="btn btn-primary">
+    </form>
+</section>
